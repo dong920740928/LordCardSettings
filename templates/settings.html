@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Lord Card arguments setting</title>
+  <table border="1">
+    <tr>
+      <th>Argument name</th>
+      <th>Argument value</th>
+      <th>Change</th>
+    </tr>
+    {% for argumentsName, argumentsValue in settings.iteritems() %}
+    <tr>
+        <td> {{ argumentsName }}  </td>
+        <td> {{ argumentsValue }}</td>
+        <td>
+            <form>
+                <input type="text" name="{{ argumentsName}}", value= {{argumentsValue}}>
+                <input type="submit" value="change">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
