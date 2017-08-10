@@ -6,16 +6,20 @@
       <th>Argument value</th>
       <th>Change</th>
     </tr>
-    {% for argumentsName, argumentsValue in settings.iteritems() %}
+    {% for argumentName in arguments %}
     <tr>
-        <td> {{ argumentsName }}  </td>
-        <td> {{ argumentsValue }}</td>
+        <td> {{ argumentName }}  </td>
+        <td> {{ settings.get(argumentName, 0) }}</td>
         <td>
             <form>
-                <input type="text" name="{{ argumentsName}}", value= {{argumentsValue}}>
+                <input type="text" name="{{argumentName}}" value={{settings.get(argumentName)}}>
                 <input type="submit" value="change">
             </form>
         </td>
     </tr>
     {% endfor %}
   </table>
+  <form>
+    <input type="hidden" name="reset" value="true">
+    <input type="submit" value="reset server">
+  </form>
